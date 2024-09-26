@@ -79,7 +79,10 @@ class LinkedList:
             current = current.next_node
 
         return current
-
+'''
+TODO:
+- Implement quicksort method to order a linked list
+'''
     def __repr__(self):
         
         nodes = []

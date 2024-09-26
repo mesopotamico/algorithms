@@ -1,4 +1,4 @@
-from binary_search import random_list
+# from binary_search import random_list
 
 def quicksort(numbers):
     length = len(numbers)

@@ -1,4 +1,5 @@
 import random
+from quicksort import quicksort
 
 def random_list():
     lis = []
@@ -29,7 +30,7 @@ def verify(index):
         print('target not found in list')
 
 numbers = random_list() # not ordered list
-#TODO Add an algorithm that orders an array
+numbers = quicksort(numbers)
 result = bianary_search(numbers,32)
 verify(result)
 print(numbers)

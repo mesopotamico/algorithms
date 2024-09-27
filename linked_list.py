@@ -1,3 +1,5 @@
+import random
+
 class Node:
     data = None
     next_node = None 
@@ -12,6 +14,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def is_empty(self):
         return self.head == None
@@ -37,11 +40,20 @@ class LinkedList:
         return None
 
     def add(self,data):
-       #Adds new node at head
+       #Adds new node at tail
+        if self.head is None:
+            new_node = Node(data)
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node = Node(data)
+            self.tail.next_node = new_node 
+            self.tail = new_node
+    
+    def add_to_head(self,data):
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
-
 
     def insert(self,data,index):
         if index == 0:
@@ -79,9 +91,10 @@ class LinkedList:
             current = current.next_node
 
         return current
+
 '''
-TODO:
-- Implement quicksort method to order a linked list
+                                TODO
+    - Add an algorithm to order the list
 '''
     def __repr__(self):
         
@@ -103,11 +116,11 @@ TODO:
 def main():
     l = LinkedList()
     for i in range(0,15):
-        l.add(i)
+        l.add(random.randint(0,40))
     
     print(l)
-    data_delete = int(input())
-    print(l.remove(data_delete))
-    print(l)
+
+    # data_delete = int(input())
+    # print(l.remove(data_delete))
 
 main()

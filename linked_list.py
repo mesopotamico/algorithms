@@ -92,10 +92,58 @@ class LinkedList:
 
         return current
 
-'''
-                                TODO
-    - Add an algorithm to order the list
-'''
+    def sort(self):
+
+        if self.head == None or self.head.next_node == None:
+            return self.head
+
+        mid = self.get_middle(self.head)
+        nex_to_mid = mid.next_node
+        mid.next_node = None   
+
+        left = LinkedList()
+        right= LinkedList()
+
+        left.head = self.head
+        right.head = nex_to_mid
+        
+        left.sort()
+        right.sort()
+
+        self.head = self.merge(left.head, right.head)
+
+
+    def merge(self,left,right):
+        if left == None:
+            return right
+        if right == None:
+            return left
+        
+        if left.data <= right.data:
+            result = left
+            result.next_node = self.merge(left.next_node , right)
+        else:
+            result = right
+            result.next_node = self.merge(left, right.next_node)
+
+
+        return result
+
+    def get_middle(self, head):
+        if self.head == None:
+            return head
+        
+        slow = head
+        fast = head.next_node 
+
+        while fast.next_node and fast.next_node:
+            slow = slow.next_node
+            fast = fast.next_node
+
+        return slow
+        
+
+
     def __repr__(self):
         
         nodes = []
@@ -118,6 +166,8 @@ def main():
     for i in range(0,15):
         l.add(random.randint(0,40))
     
+    print(l)
+    l.sort()
     print(l)
 
     # data_delete = int(input())

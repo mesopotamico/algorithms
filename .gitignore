@@ -2,6 +2,7 @@
 *.pyc
 __pycache__/
 *.pyo
+.DS_Store
 
 # Ignorar entornos virtuales
 venv/

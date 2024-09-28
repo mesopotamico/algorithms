@@ -2,6 +2,8 @@ from binary_search import random_list
 import numpy as np
 
 
+
+
 def quicksort(vector):
     
     if  len(vector) != 0: 

@@ -21,8 +21,6 @@ def quicksort(vector):
 
 
 def locate_pivot(vector, start, end):
-    print(f"Este para esta iteracion: {vector}")
-    print(f"pivote {vector[start]}")
     while start < end:
         while vector[end] >= vector[start] and start < end:
             end -= 1
